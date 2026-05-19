@@ -1,112 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AserCofi | Despacho Contable</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AserCofi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
-<div id="preloader">
-    <div class="preloader-content">
-        <h2 class="preloader-logo">ASER<span>COFI</span></h2>
-        <div class="loader-bar"></div>
-    </div>
-</div>
+<!-- FONDO -->
+<div class="bg"></div>
+<div class="overlay"></div>
+<div class="grid"></div>
 
-<nav class="navbar">
-    <div class="logo">ASER<span>COFI</span></div>
-    <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#contacto" class="nav-cta">Agendar Asesoría</a></li>
-    </ul>
-</nav>
+<!-- NAVBAR -->
+<header class="navbar">
 
-<section id="inicio" class="hero">
-    <div class="stars"></div>
-    
-    <div class="clouds-container">
-        <div class="cloud-layer cloud-bg1"></div>
-        <div class="cloud-layer cloud-bg2"></div>
+    <div class="logo">
+        Aser<span>Cofi</span>
     </div>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Servicios</a>
+
+        <button id="openPanel">
+            Agendar Asesoría
+        </button>
+    </nav>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
 
     <div class="hero-content">
-        <h1 id="typewriter"></h1>
-        <p>Estrategia fiscal de alto nivel para tu negocio.</p>
-        <a href="#contacto" class="btn-primary">Empezar ahora</a>
+
+        <h1>
+            Contabilidad
+            inteligente y
+            soluciones.
+        </h1>
+
+        <p>
+            Estrategia fiscal de alto nivel para tu negocio.
+        </p>
+
+        <a href="#services" class="hero-btn">
+            Empezar ahora
+        </a>
+
     </div>
-    <a href="#servicios" class="scroll-indicator">
-        <div class="arrow"></div>
-    </a>
+
 </section>
 
-<section id="servicios" class="services">
-    <h2 class="section-title">Nuestros Servicios</h2>
-    <div class="grid">
+<!-- SERVICIOS -->
+<section class="services" id="services">
+
+    <h2>
+        Nuestros Servicios
+    </h2>
+
+    <div class="cards">
+
         <div class="card">
             <h3>Contabilidad General</h3>
-            <p>Gestión financiera impecable para tu tranquilidad.</p>
+
+            <p>
+                Gestión financiera impecable para tu tranquilidad.
+            </p>
         </div>
+
         <div class="card">
             <h3>Estrategia Fiscal</h3>
-            <p>Optimización de impuestos cumpliendo la ley.</p>
+
+            <p>
+                Optimización de impuestos cumpliendo la ley.
+            </p>
         </div>
+
         <div class="card">
             <h3>Nóminas</h3>
-            <p>Administración eficiente de tu equipo de trabajo.</p>
+
+            <p>
+                Administración eficiente de tu equipo de trabajo.
+            </p>
         </div>
+
         <div class="card">
             <h3>Auditoría</h3>
-            <p>Revisión profunda para un crecimiento seguro.</p>
+
+            <p>
+                Revisión profunda para un crecimiento seguro.
+            </p>
         </div>
+
     </div>
+
 </section>
 
-<section id="contacto" class="contact">
-    <div class="contact-card">
-        <div class="contact-badge">Asesoría Gratuita</div>
-        <h2>Obtén tu asesoría</h2>
-        <p class="contact-subtext">Impulsa tu negocio con soluciones contables y fiscales inteligentes.</p>
-        
-        <form class="contact-form" id="contactForm">
-            <div class="input-group">
-                <input type="text" name="nombre" id="nombre" required placeholder=" ">
-                <label for="nombre">Nombre completo</label>
-            </div>
-            <div class="input-group">
-                <input type="email" name="email" id="email" required placeholder=" ">
-                <label for="email">Correo electrónico</label>
-            </div>
-            <div class="input-group">
-                <input type="tel" name="telefono" id="telefono" required placeholder=" ">
-                <label for="telefono">Teléfono</label>
-            </div>
-            <div class="input-group">
-                <textarea name="mensaje" id="mensaje" rows="4" required placeholder=" "></textarea>
-                <label for="mensaje">Cuéntanos qué necesitas</label>
-            </div>
-            <button type="submit" class="btn-submit">Solicitar Asesoría</button>
+<!-- PANEL DERECHO -->
+<div class="panel" id="panel">
+
+    <div class="panel-content">
+
+        <button class="close-btn" id="closePanel">
+            ✕
+        </button>
+
+        <div class="badge">
+            Asesoría Gratuita
+        </div>
+
+        <h2>
+            Obtén tu asesoría
+        </h2>
+
+        <p>
+            Impulsa tu negocio con soluciones contables y fiscales inteligentes.
+        </p>
+
+        <form id="contactForm">
+
+            <input type="text" id="nombre" placeholder="Nombre completo">
+
+            <input type="email" id="email" placeholder="Correo electrónico">
+
+            <input type="tel" id="telefono" placeholder="Teléfono">
+
+            <textarea id="mensaje" placeholder="Cuéntanos qué necesitas"></textarea>
+
+            <button type="submit">
+                Solicitar Asesoría
+            </button>
+
         </form>
 
-        <div class="social-links active-socials">
-            <a href="https://wa.me/5540701518" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61589274729389" target="_blank" class="social-icon facebook" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </div>
     </div>
-</section>
 
-<footer class="footer">
-    <p>&copy; 2026 AserCofi. Todos los derechos reservados.</p>
-</footer>
+</div>
 
 <script src="main.js"></script>
+
 </body>
 </html>
