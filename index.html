@@ -1,152 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AserCofi</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AserCofi - Contabilidad Inteligente</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- FONDO -->
-<div class="bg"></div>
-<div class="overlay"></div>
-<div class="grid"></div>
+    <div class="grid-pattern-left"></div>
 
-<!-- NAVBAR -->
-<header class="navbar">
+   <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">◆</span> 
+            AserCofi 
+            <span class="logo-subtitle">Soluciones Contables</span>
+        </div>
+        <nav class="nav-links">
+            <button class="btn-nav toggle-form-btn">Agendar Asesoría</button>
+        </nav>
+    </header>
 
-    <div class="logo">
-        Aser<span>Cofi</span>
+    <main class="main-wrapper">
+        
+        <section class="hero-section">
+            <h1>Contabilidad inteligente y soluciones.</h1>
+            <p class="subtitle">Estrategia Fiscal de alto nivel para tu negocio.</p>
+            <button class="btn-hero toggle-form-btn">Empezar ahora</button>
+        </section>
+
+        <section class="services-section">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Contabilidad General</h3>
+                    <p>Gestión financiera impecable para tu tranquilidad.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Estrategia Fiscal</h3>
+                    <p>Optimización de impuestos cumpliendo la ley.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <div id="side-panel" class="side-panel">
+        <div class="panel-header">
+            <span class="badge">Asesoría Gratuita</span>
+            <button id="close-panel-btn" class="close-btn">&times;</button>
+        </div>
+        
+        <div class="panel-body">
+            <h2>Obtén tu asesoría</h2>
+            <p class="panel-subtitle">Impulsa tu negocio con soluciones contables y fiscales inteligentes.</p>
+
+            <form class="advisor-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Cuéntanos qué necesitas" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Solicitar Asesoría</button>
+            </form>
+        </div>
+
+        <div class="panel-footer">
+            <div class="social-icons">
+                <a href="#" class="icon-whatsapp" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.004 2c-5.523 0-10 4.477-10 10a9.957 9.957 0 0 0 1.354 5.009L2 22l5.163-1.354A9.954 9.954 0 0 0 12.004 22c5.523 0 10-4.477 10-10s-4.477-10-10-10zm0 1.34c4.783 0 8.66 3.877 8.66 8.66s-3.877 8.66-8.66 8.66a8.595 8.595 0 0 1-4.406-1.206l-.316-.188-3.064.804.818-2.986-.207-.33a8.59 8.59 0 0 1-1.165-4.414c0-4.783 3.877-8.66 8.66-8.66zm-2.222 3.123c-.2 0-.442.05-.632.24-.19.191-.737.72-.737 1.758 0 1.037.758 2.037.863 2.179.105.142 1.49 2.274 3.61 3.19.504.218.897.348 1.205.446.507.162.968.139 1.332.085.406-.06 1.24-.507 1.414-.997.174-.49.174-.91.122-.997-.052-.088-.19-.14-.4-.246-.21-.105-1.24-.613-1.43-.683-.192-.07-.333-.105-.474.105-.14.21-.544.683-.667.823-.122.14-.245.158-.456.053a5.748 5.748 0 0 1-1.693-1.045 6.326 6.326 0 0 1-1.171-1.458c-.123-.21-.013-.324.092-.43.094-.093.21-.245.316-.368.105-.122.14-.21.21-.35.07-.14.035-.263-.017-.369-.053-.105-.474-1.14-.65-1.56-.17-.41-.343-.353-.474-.36-.122-.006-.263-.006-.403-.006z"/></svg>
+                </a>
+                <a href="#" class="icon-facebook" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                </a>
+            </div>
+            <p class="copyright">© 2026 AserCofi. Todos los derechos reservados.</p>
+        </div>
     </div>
 
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Servicios</a>
+    <div id="overlay" class="overlay"></div>
 
-        <button id="openPanel">
-            Agendar Asesoría
-        </button>
-    </nav>
-
-</header>
-
-<!-- HERO -->
-<section class="hero">
-
-    <div class="hero-content">
-
-        <h1>
-            Contabilidad
-            inteligente y
-            soluciones.
-        </h1>
-
-        <p>
-            Estrategia fiscal de alto nivel para tu negocio.
-        </p>
-
-        <a href="#services" class="hero-btn">
-            Empezar ahora
-        </a>
-
-    </div>
-
-</section>
-
-<!-- SERVICIOS -->
-<section class="services" id="services">
-
-    <h2>
-        Nuestros Servicios
-    </h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Contabilidad General</h3>
-
-            <p>
-                Gestión financiera impecable para tu tranquilidad.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Estrategia Fiscal</h3>
-
-            <p>
-                Optimización de impuestos cumpliendo la ley.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Nóminas</h3>
-
-            <p>
-                Administración eficiente de tu equipo de trabajo.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Auditoría</h3>
-
-            <p>
-                Revisión profunda para un crecimiento seguro.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PANEL DERECHO -->
-<div class="panel" id="panel">
-
-    <div class="panel-content">
-
-        <button class="close-btn" id="closePanel">
-            ✕
-        </button>
-
-        <div class="badge">
-            Asesoría Gratuita
-        </div>
-
-        <h2>
-            Obtén tu asesoría
-        </h2>
-
-        <p>
-            Impulsa tu negocio con soluciones contables y fiscales inteligentes.
-        </p>
-
-        <form id="contactForm">
-
-            <input type="text" id="nombre" placeholder="Nombre completo">
-
-            <input type="email" id="email" placeholder="Correo electrónico">
-
-            <input type="tel" id="telefono" placeholder="Teléfono">
-
-            <textarea id="mensaje" placeholder="Cuéntanos qué necesitas"></textarea>
-
-            <button type="submit">
-                Solicitar Asesoría
-            </button>
-
-        </form>
-
-    </div>
-
-</div>
-
-<script src="main.js"></script>
-
+    <script src="main.js"></script>
 </body>
 </html>

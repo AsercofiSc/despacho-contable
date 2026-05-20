@@ -1,59 +1,29 @@
-const panel =
-document.getElementById("panel");
+document.addEventListener('DOMContentLoaded', () => {
+    const sidePanel = document.getElementById('side-panel');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('close-panel-btn');
+    const toggleButtons = document.querySelectorAll('.toggle-form-btn');
 
-const openBtn =
-document.getElementById("openPanel");
+    // Abre el formulario deslizando desde la derecha
+    const openPanel = () => {
+        sidePanel.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Bloquea el scroll del fondo en móviles
+    };
 
-const closeBtn =
-document.getElementById("closePanel");
+    // Cierra el formulario ocultándolo a la derecha
+    const closePanel = () => {
+        sidePanel.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // Devuelve el scroll original al cerrar
+    };
 
-openBtn.addEventListener("click", () => {
+    // Añade el detector de eventos a los botones que abren el panel
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', openPanel);
+    });
 
-    panel.classList.add("active");
-
-});
-
-closeBtn.addEventListener("click", () => {
-
-    panel.classList.remove("active");
-
-});
-
-document
-.getElementById("contactForm")
-.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    const nombre =
-    document.getElementById("nombre").value;
-
-    const email =
-    document.getElementById("email").value;
-
-    const telefono =
-    document.getElementById("telefono").value;
-
-    const mensaje =
-    document.getElementById("mensaje").value;
-
-    const numero =
-    "5540701518";
-
-    const texto =
-`Nueva Consulta AserCofi
-
-Nombre: ${nombre}
-
-Correo: ${email}
-
-Teléfono: ${telefono}
-
-Mensaje: ${mensaje}`;
-
-    window.open(
-`https://wa.me/${numero}?text=${encodeURIComponent(texto)}`,
-"_blank"
-);
-
+    // Cierra el panel al hacer click en la "X" o en el fondo oscuro
+    closeBtn.addEventListener('click', closePanel);
+    overlay.addEventListener('click', closePanel);
 });
