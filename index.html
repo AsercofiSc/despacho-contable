@@ -8,27 +8,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div id="preloader">
+    <div class="preloader-content">
+        <div class="preloader-logo">
+            <span class="preloader-icon">♦</span> AserCofi
+        </div>
+        <div class="loader-bar-container">
+            <div class="loader-bar-progress"></div>
+        </div>
+    </div>
+</div>
 
     <div class="grid-pattern-left"></div>
 
-    <header class="navbar">
+   <header>
+    <nav class="navbar">
         <div class="logo">
-            <span class="logo-icon">◆</span> 
-            AserCofi 
-            <span class="logo-subtitle">Soluciones Contables</span>
+            <span class="logo-icon">♦</span> AserCofi
         </div>
-        <nav class="nav-links">
-            <button class="btn-nav toggle-form-btn">Agendar Asesoría</button>
-        </nav>
-    </header>
-
-    <main class="main-wrapper">
         
-        <section class="hero-section">
-            <h1 class="hero-title">Contabilidad y soluciones.</h1>
-            <p class="subtitle">Soluciones fiscales para ti y tu negocio.</p>
-            <button class="btn-hero toggle-form-btn">Envíanos Mensaje</button>
-        </section>
+        <div class="status-indicator-container">
+            <span class="status-pulse"></span>
+            
+        </div>
+    </nav>
+</header>
+
+<main class="main-wrapper">
+    <section class="hero-section">
+        <h1 class="hero-title">Contabilidad y soluciones.</h1>
+        <p class="subtitle">Soluciones fiscales para ti y tu negocio.</p>
+        <button class="btn-hero toggle-form-btn">Contactanos Ahora</button>
+    </section>
 
         <section class="services-section">
             <h2>Nuestros Servicios</h2>
@@ -61,19 +72,19 @@
 
         <section class="social-section">
             <div class="social-container">
-                <a href="https://wa.me/tu_numero" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <a href="https://wa.me/5540701518" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
                 
-                <a href="https://instagram.com/tu_perfil" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/asercoficontadores?fbclid=IwY2xjawR6MVVleHRuA2FlbQIxMABicmlkETJtbEQzeGlpN3MwbG1GaVhrc3J0YwZhcHBfaWQPNTE0NzcxNTY5MjI4MDYxAAEefAFP31iZltymmgqb-antaBaqgBJK0lmBLRgUmYA9JlVikXqpEZ_0DFqOLQ8_aem__4xlXa_hsAES1zQ2hbgiTQ" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
                 
-                <a href="https://facebook.com/tu_pagina" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <a href="https://www.facebook.com/profile.php?id=61589750590612#" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
                 
-                <a href="mailto:tu_correo@dominio.com" class="social-link" aria-label="Correo Electrónico">
+                <a href="mailto:webcontadorara@outlook.com" class="social-link" aria-label="Correo Electrónico">
                     <i class="far fa-envelope"></i>
                 </a>
             </div>
@@ -91,21 +102,27 @@
             <h2>Obtén tu asesoría</h2>
             <p class="panel-subtitle">Impulsa tu negocio con soluciones contables y fiscales inteligentes.</p>
 
-            <form class="advisor-form" onsubmit="event.preventDefault();">
-                <div class="form-group">
-                    <input type="text" placeholder="Nombre completo" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Correo electrónico" required>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Cuéntanos qué necesitas" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Solicitar Asesoría</button>
-            </form>
-        </div>
+           <form class="advisor-form" id="contact-form" method="POST">
+    <div class="form-group">
+        <input type="text" name="nombre" placeholder="Nombre completo" required>
+    </div>
 
-        <div class="panel-footer">
+    <div class="form-group">
+        <input type="email" name="correo" placeholder="Correo electrónico" required>
+    </div>
+
+    <div class="form-group">
+        <textarea name="mensaje" placeholder="Cuéntanos qué necesitas" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit">
+        Solicitar Asesoría
+    </button>
+</form>
+
+</div> <!-- ESTE FALTABA -->
+
+<div class="panel-footer">
             <div class="social-icons">
                 <a href="#" class="icon-whatsapp" aria-label="WhatsApp">
                     <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.004 2c-5.523 0-10 4.477-10 10a9.957 9.957 0 0 0 1.354 5.009L2 22l5.163-1.354A9.954 9.954 0 0 0 12.004 22c5.523 0 10-4.477 10-10s-4.477-10-10-10zm0 1.34c4.783 0 8.66 3.877 8.66 8.66s-3.877 8.66-8.66 8.66a8.595 8.595 0 0 1-4.406-1.206l-.316-.188-3.064.804.818-2.986-.207-.33a8.59 8.59 0 0 1-1.165-4.414c0-4.783 3.877-8.66 8.66-8.66zm-2.222 3.123c-.2 0-.442.05-.632.24-.19.191-.737.72-.737 1.758 0 1.037.758 2.037.863 2.179.105.142 1.49 2.274 3.61 3.19.504.218.897.348 1.205.446.507.162.968.139 1.332.085.406-.06 1.24-.507 1.414-.997.174-.49.174-.91.122-.997-.052-.088-.19-.14-.4-.246-.21-.105-1.24-.613-1.43-.683-.192-.07-.333-.105-.474.105-.14.21-.544.683-.667.823-.122.14-.245.158-.456.053a5.748 5.748 0 0 1-1.693-1.045 6.326 6.326 0 0 1-1.171-1.458c-.123-.21-.013-.324.092-.43.094-.093.21-.245.316-.368.105-.122.14-.21.21-.35.07-.14.035-.263-.017-.369-.053-.105-.474-1.14-.65-1.56-.17-.41-.343-.353-.474-.36-.122-.006-.263-.006-.403-.006z"/></svg>

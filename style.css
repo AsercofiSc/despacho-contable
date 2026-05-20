@@ -268,19 +268,32 @@ body {
 /* ==========================================================================
    PANEL LATERAL ASESORÍA
    ========================================================================== */
+/* ========================================================================== 
+   PANEL LATERAL ASESORÍA
+   ========================================================================== */
 .side-panel {
     position: fixed;
     top: 0;
     right: -460px;
     width: 440px;
     height: 100vh;
-    background-color: rgba(13, 13, 15, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.6);
+
+    /* FIX PRINCIPAL */
+    overflow: hidden;
+
+    background-color: rgba(7, 18, 36, 0.45) !important; 
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+
     z-index: 1000;
+
     transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
     padding: 40px 35px;
+
     display: flex;
     flex-direction: column;
 }
@@ -289,7 +302,7 @@ body {
     right: 0;
 }
 
-/* Corregido error de llave abierta anterior */
+/* HEADER PANEL */
 .panel-header {
     display: flex !important;
     justify-content: space-between !important;
@@ -323,9 +336,25 @@ body {
     color: #ffffff;
 }
 
+/* ========================================================================== 
+   PANEL BODY - CORREGIDO
+   ========================================================================== */
 .panel-body {
     display: flex;
     flex-direction: column;
+
+    /* Scroll premium */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.15) transparent;
+}
+
+.panel-body::-webkit-scrollbar {
+    width: 4px;
+}
+
+.panel-body::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
 }
 
 .side-panel h2 {
@@ -343,7 +372,9 @@ body {
     line-height: 1.5;
 }
 
-/* FORMULARIO ADVISOR */
+/* ========================================================================== 
+   FORMULARIO
+   ========================================================================== */
 .advisor-form {
     display: flex;
     flex-direction: column;
@@ -394,11 +425,14 @@ body {
     background-color: #1e40af;
 }
 
+/* ========================================================================== 
+   FOOTER PANEL
+   ========================================================================== */
 .panel-footer {
-    margin-top: auto;
     display: flex;
     flex-direction: column;
     gap: 25px;
+    margin-top: 30px;
 }
 
 .social-icons {
@@ -442,6 +476,9 @@ body {
     color: #3f3f46;
 }
 
+/* ========================================================================== 
+   OVERLAY
+   ========================================================================== */
 .overlay {
     position: fixed;
     top: 0;
@@ -460,16 +497,101 @@ body {
     pointer-events: auto;
 }
 
-/* ANIMACIONES */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+/* ========================================================================== 
+   MOBILE FIX
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    .side-panel {
+        width: 100% !important;
+        right: -100%;
+
+        padding: 30px 20px !important;
+
+        /* FIX IOS/ANDROID */
+        height: 100dvh !important;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+
+}
+/* ==========================================================================
+   PANTALLA DE CARGA (PRELOADER) ESTILO PREMIUM
+   ========================================================================== */
+/* ==========================================================================
+   PANTALLA DE CARGA (PRELOADER) TRANSLÚCIDO Y BORROSO
+   ========================================================================== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    
+    /* 1. Fondo azul marino oscuro pero con 40% de transparencia para dejar pasar tu fondo */
+    background-color: rgba(7, 11, 19, 0.40) !important; 
+    
+    /* 2. Efecto de vidrio esmerilado que difumina tus nubes de fondo de forma premium */
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+}
+
+/* El resto de tus componentes internos se mantienen alineados con el estilo */
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.preloader-logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.preloader-icon {
+    color: #3b82f6; 
+}
+
+.loader-bar-container {
+    width: 180px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.15); /* Un poco más visible sobre el fondo claro */
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader-bar-progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: fillLoader 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fillLoader {
+    0% { width: 0%; }
+    30% { width: 45%; }
+    70% { width: 85%; }
+    100% { width: 100%; }
+}
+
+#preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* ==========================================================================
@@ -525,7 +647,7 @@ body {
     /* Separación controlada de 5-6 cm hacia los servicios */
     .services-section {
         width: 100% !important;
-        margin-top: 65px !important; 
+        margin-top: 75px !important; 
         margin-bottom: 0px !important;
     }
 
@@ -636,7 +758,7 @@ body {
 
 /* --- CORREO: Ámbar/Amarillo cálido encendido de forma fija --- */
 .social-link:has(i.fa-envelope) {
-    border-color: rgba(251, 191, 36, 0.35) !important;
+    border-color: rgba(251, 191, 36, 0.3D5) !important;
     background-color: rgba(251, 191, 36, 0.08) !important;
 }
 .social-link i.fa-envelope {
