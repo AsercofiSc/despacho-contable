@@ -29,9 +29,13 @@
             <button class="btn-hero toggle-form-btn">Envíanos Mensaje</button>
         </section>
 
-        <section class="services-section">
-            <h2>Nuestros Servicios</h2>
-            <div class="services-grid carrusel-mobile">
+   <section class="services-section">
+        <h2>Nuestros Servicios</h2>
+        
+        <div class="carrusel-container">
+            <button class="carrusel-btn prev-btn" id="prev-arr" aria-label="Anterior">&#8249;</button>
+            
+            <div class="services-grid" id="services-slider">
                 <div class="service-card">
                     <h3>Contabilidad General</h3>
                     <p>Gestión financiera impecable para tu tranquilidad.</p>
@@ -49,7 +53,10 @@
                     <p>Evaluación y control preciso de tus procesos.</p>
                 </div>
             </div>
-        </section>
+
+            <button class="carrusel-btn next-btn" id="next-arr" aria-label="Siguiente">&#8250;</button>
+        </div>
+    </section>
         
     </main>
 

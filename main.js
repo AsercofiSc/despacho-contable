@@ -26,4 +26,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cierra el panel al hacer click en la "X" o en el fondo oscuro
     closeBtn.addEventListener('click', closePanel);
     overlay.addEventListener('click', closePanel);
+
+    // --- LÓGICA DE NAVEGACIÓN DEL CARRUSEL CORREGIDA ---
+    // Cambiado 'carrusel-grid' por 'services-slider' para coincidir con el HTML
+    const carrusel = document.getElementById('services-slider');
+    const prevBtn = document.getElementById('prev-arr');
+    const nextBtn = document.getElementById('next-arr');
+
+    if (carrusel && prevBtn && nextBtn) {
+        const getScrollAmount = () => {
+            const card = carrusel.querySelector('.service-card');
+            // Detecta el ancho real de la tarjeta + 16px del gap configurado en el CSS
+            return card ? card.clientWidth + 16 : 301;
+        };
+
+        nextBtn.addEventListener('click', () => {
+            carrusel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            carrusel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+    }
 });
