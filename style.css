@@ -122,37 +122,42 @@ body {
 }
 
 /* CONTENEDOR PRINCIPAL FLUIDO */
+/* --- ESTILOS DE ESCRITORIO (PC) --- */
+
+/* Unifica tus .main-wrapper. Esta es la versión correcta para elevar el contenido. */
 .main-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: calc(100vh - 94px);
-    padding: 40px 80px 60px 80px;
+    padding: 30px 80px 40px 80px; /* Padding ajustado para elevar la sección */
     position: relative;
     z-index: 2;
 }
 
-/* HERO SECTION */
+/* HERO SECTION - REPARADO */
 .hero-section {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-top: 40px;
+    margin-top: 20px;
+    text-align: left; /* Alineado a la izquierda */
 }
 
-.hero-section h1 {
+/* Este es el estilo crítico para el título del héroe desordenado */
+.hero-title {
     font-size: 52px;
     font-weight: 700;
-    max-width: 600px;
-    line-height: 1.15;
     color: #ffffff;
+    max-width: 800px; /* Evita que el título se estreche y se superponga */
+    line-height: 1.2;
+    white-space: nowrap; /* Fuerza una sola línea en PC */
 }
 
 .hero-section .subtitle {
     font-size: 18px;
     color: #cbd5e1;
     max-width: 500px;
-    margin-bottom: 10px;
 }
 
 /* SECCIÓN SERVICIOS */
@@ -163,34 +168,37 @@ body {
 .services-section h2 {
     font-size: 32px;
     font-weight: 700;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: #ffffff;
 }
 
+/* El Grid 2x2 para PC */
 .services-grid {
-    display: flex;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 300px); /* Ilera perfecta de 2x2 en PC */
+    gap: 20px;
+    
+    /* Animación de entrada sutil */
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.service-card {
-    background-color: rgba(10, 11, 14, 0.88);
-    border-radius: 20px;
-    padding: 30px;
-    width: 300px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.service-card h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #ffffff;
-}
-
+/* LEGIBILIDAD DEL TEXTO DE LA TARJETA */
 .service-card p {
     font-size: 14px;
-    color: #94a3b8;
+    color: #94a3b8; /* Gris claro para legibilidad */
     line-height: 1.5;
+}
+
+/* DECLARACIÓN DE LA ANIMACIÓN */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* PANEL LATERAL DESPLEGABLE */
@@ -386,12 +394,58 @@ body {
 }
 
 /* DISPOSITIVOS MÓVILES (OPTIMIZACIÓN) */
+ /* --- ESTILOS DE DISPOSITIVOS MÓVILES (OPTIMIZACIÓN) --- */
 @media (max-width: 768px) {
-    /* Evita parpadeos y deformaciones de la imagen de fondo en iOS */
-    body {
-        background-attachment: scroll; 
-        background-position: center top; 
+
+    /* El título del héroe móvil se adapta */
+    .hero-title {
+        font-size: 32px;
+        max-width: 100%;
+        line-height: 1.3;
+        white-space: normal; /* Permite que el título se envuelva en móvil si es necesario */
     }
+
+    /* Optimización de la sección de servicios (Carrusel Horizontal con Animación) */
+    .services-section {
+        margin-top: 35px; /* Sube la sección en móvil */
+    }
+
+    /* Este contenedor se convierte en el carrusel táctil */
+    .services-grid.carrusel-mobile {
+        display: flex;
+        flex-direction: row;            /* Rompe el grid y las alinea horizontalmente */
+        overflow-x: auto;               /* Activa el desplazamiento hacia la derecha */
+        scroll-snap-type: x mandatory;   /* Efecto magnético premium al deslizar */
+        gap: 16px;                      /* Espacio entre cada tarjeta */
+        padding: 5px 5px 20px 5px;      /* Padding inferior para sombras */
+        width: 100%;
+        -webkit-overflow-scrolling: touch; /* Deslizamiento nativo ultra suave en iOS */
+        
+        /* Asegúrate de que la animación se aplique también al carrusel */
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Ocultar la barra de scroll visual */
+    .services-grid.carrusel-mobile::-webkit-scrollbar {
+        display: none;
+    }
+
+    .service-card {
+        flex-shrink: 0;                 /* Evita que el contenedor aplaste las tarjetas */
+        width: 285px;                   /* Ancho ideal para iPhone: muestra una tarjeta y adelanto de la otra */
+        scroll-snap-align: start;       /* Alinea automáticamente cada tarjeta al deslizar */
+        padding: 20px; 
+        border-radius: 16px; 
+        background-color: rgba(10, 11, 14, 0.92);
+    }
+
+    /* LEGIBILIDAD DEL TEXTO DE LA TARJETA EN MÓVIL */
+    .service-card p {
+        font-size: 13px;
+        color: #94a3b8; /* Gris claro para legibilidad */
+        line-height: 1.4;
+    }
+}
 
     /* Modifica la Navbar para que se distribuya en dos niveles limpios */
     /* Estética de la Navbar en móvil */
@@ -428,34 +482,29 @@ body {
         padding: 8px 14px;         /* Un botón ligeramente más compacto para pantallas pequeñas */
         font-size: 12px;
     }
+/* CONTENEDOR PRINCIPAL FLUIDO (Optimizado para elevar contenido) */
+     /* CONTENEDOR PRINCIPAL FLUIDO (Optimizado para elevar contenido) */
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 94px);
+    padding: 30px 80px 40px 80px; /* Reducido de 40px/60px a 30px/40px para subir la sección */
+    position: relative;
+    z-index: 2;
+}
 
-    /* Ajustes del contenedor principal */
-    .main-wrapper {
-        padding: 30px 20px;
-        min-height: calc(100vh - 110px); /* Ajustado al nuevo tamaño de la navbar móvil */
-    }
+/* HERO SECTION */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px; /* Reducido de 40px a 20px para un inicio más compacto */
+}
 
-    /* Optimización de textos en el Hero */
-    .hero-section {
-        margin-top: 15px;
-        gap: 12px;
-    }
-
-    .hero-section h1 {
-        font-size: 32px;
-        line-height: 1.2;
-        max-width: 100%;
-    }
-
-    .hero-section .subtitle {
-        font-size: 16px;
-        line-height: 1.4;
-        max-width: 100%;
-    }
-
-    /* Optimización de la sección de servicios (Apilado vertical compacto) */
+/* Optimización de la sección de servicios (Carrusel Horizontal con Animación) */
     .services-section {
-        margin-top: 40px;
+        margin-top: 35px; /* Sube la sección en móvil para que no se vea tan separada */
     }
 
     .services-section h2 {
@@ -464,10 +513,41 @@ body {
     }
 
     .services-grid {
-        flex-direction: column;
-        gap: 12px; 
+        display: flex;
+        flex-direction: row;            /* Rompe el grid y las alinea una al lado de la otra */
+        overflow-x: auto;               /* Activa el desplazamiento hacia la derecha */
+        scroll-snap-type: x mandatory;   /* Efecto magnético muy premium al deslizar */
+        gap: 16px;                      /* Espacio entre cada tarjeta en móvil */
+        padding: 5px 5px 20px 5px;      /* Espacio inferior para que no se corten los bordes */
+        width: 100%;
+        -webkit-overflow-scrolling: touch; /* Deslizamiento nativo ultra suave en iOS */
     }
 
+    /* Ocultar la barra de scroll visual para un diseño minimalista */
+    .services-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .service-card {
+        flex-shrink: 0;                 /* Evita que el contenedor aplaste o deforme las tarjetas */
+        width: 285px;                   /* Ancho ideal para iPhone: muestra una tarjeta y un adelanto de la otra */
+        scroll-snap-align: start;       /* Alinea automáticamente cada tarjeta al deslizar */
+        padding: 20px; 
+        border-radius: 16px; 
+        background-color: rgba(10, 11, 14, 0.92);
+    }
+
+/* DECLARACIÓN DE LA ANIMACIÓN */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
     .service-card {
         width: 100%;
         padding: 18px 20px; 
@@ -491,4 +571,3 @@ body {
         right: -100%;
         padding: 30px 20px;
     }
-}
