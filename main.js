@@ -6,29 +6,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Abre el formulario deslizando desde la derecha
     const openPanel = () => {
-        sidePanel.classList.add('active');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Bloquea el scroll del fondo en móviles
+        if (sidePanel && overlay) {
+            sidePanel.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Bloquea el scroll de fondo
+        }
     };
 
     // Cierra el formulario ocultándolo a la derecha
     const closePanel = () => {
-        sidePanel.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = ''; // Devuelve el scroll original al cerrar
+        if (sidePanel && overlay) {
+            sidePanel.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = ''; // Devuelve el scroll original
+        }
     };
 
-    // Añade el detector de eventos a los botones que abren el panel
+    // Asigna el evento a todos los botones de apertura
     toggleButtons.forEach(button => {
         button.addEventListener('click', openPanel);
     });
 
-    // Cierra el panel al hacer click en la "X" o en el fondo oscuro
-    closeBtn.addEventListener('click', closePanel);
-    overlay.addEventListener('click', closePanel);
+    // Cierre seguro al hacer click en la "X"
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closePanel();
+        });
+    }
 
-    // --- LÓGICA DE NAVEGACIÓN DEL CARRUSEL CORREGIDA ---
-    // Cambiado 'carrusel-grid' por 'services-slider' para coincidir con el HTML
+    // Cierre al hacer click en el fondo oscuro difuminado
+    if (overlay) {
+        overlay.addEventListener('click', closePanel);
+    }
+
+    // Extra: Cerrar panel con la tecla Escape (PC)
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closePanel();
+        }
+    });
+
+    // --- LÓGICA DE NAVEGACIÓN DEL CARRUSEL ---
     const carrusel = document.getElementById('services-slider');
     const prevBtn = document.getElementById('prev-arr');
     const nextBtn = document.getElementById('next-arr');
@@ -36,8 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (carrusel && prevBtn && nextBtn) {
         const getScrollAmount = () => {
             const card = carrusel.querySelector('.service-card');
-            // Detecta el ancho real de la tarjeta + 16px del gap configurado en el CSS
-            return card ? card.clientWidth + 16 : 301;
+            return card ? card.clientWidth + 16 : 300;
         };
 
         nextBtn.addEventListener('click', () => {

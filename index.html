@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AserCofi - Contabilidad Inteligente</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <div class="grid-pattern-left"></div>
 
-   <header class="navbar">
+    <header class="navbar">
         <div class="logo">
             <span class="logo-icon">◆</span> 
             AserCofi 
@@ -29,41 +30,61 @@
             <button class="btn-hero toggle-form-btn">Envíanos Mensaje</button>
         </section>
 
-   <section class="services-section">
-        <h2>Nuestros Servicios</h2>
-        
-        <div class="carrusel-container">
-            <button class="carrusel-btn prev-btn" id="prev-arr" aria-label="Anterior">&#8249;</button>
+        <section class="services-section">
+            <h2>Nuestros Servicios</h2>
             
-            <div class="services-grid" id="services-slider">
-                <div class="service-card">
-                    <h3>Contabilidad General</h3>
-                    <p>Gestión financiera impecable para tu tranquilidad.</p>
+            <div class="carrusel-container">
+                <button class="carrusel-btn prev-btn" id="prev-arr" aria-label="Anterior">&#8249;</button>
+                
+                <div class="services-grid" id="services-slider">
+                    <div class="service-card">
+                        <h3>Contabilidad General</h3>
+                        <p>Gestión financiera impecable para tu tranquilidad.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Estrategia Fiscal</h3>
+                        <p>Optimización de impuestos cumpliendo la ley.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Asesoría Financiera</h3>
+                        <p>Análisis profundo para maximizar tu rendimiento.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Auditoría Interna</h3>
+                        <p>Evaluación y control preciso de tus procesos.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>Estrategia Fiscal</h3>
-                    <p>Optimización de impuestos cumpliendo la ley.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Asesoría Financiera</h3>
-                    <p>Análisis profundo para maximizar tu rendimiento.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Auditoría Interna</h3>
-                    <p>Evaluación y control preciso de tus procesos.</p>
-                </div>
-            </div>
 
-            <button class="carrusel-btn next-btn" id="next-arr" aria-label="Siguiente">&#8250;</button>
-        </div>
-    </section>
+                <button class="carrusel-btn next-btn" id="next-arr" aria-label="Siguiente">&#8250;</button>
+            </div> 
+        </section> 
+
+        <section class="social-section">
+            <div class="social-container">
+                <a href="https://wa.me/tu_numero" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                
+                <a href="https://instagram.com/tu_perfil" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <a href="https://facebook.com/tu_pagina" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                
+                <a href="mailto:tu_correo@dominio.com" class="social-link" aria-label="Correo Electrónico">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
+        </section>
         
     </main>
 
     <div id="side-panel" class="side-panel">
         <div class="panel-header">
             <span class="badge">Asesoría Gratuita</span>
-            <button id="close-panel-btn" class="close-btn">&times;</button>
+            <button id="close-panel-btn" class="close-btn" type="button">&times;</button>
         </div>
         
         <div class="panel-body">

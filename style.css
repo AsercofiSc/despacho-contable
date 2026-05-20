@@ -1,4 +1,6 @@
-/* RESET GENERAL */
+/* ==========================================================================
+   RESET GENERAL Y TIPOGRAFÍA
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +20,7 @@ body {
     position: relative;
 }
 
-/* DECORACIÓN IZQUIERDA: CUADRÍCULA DE PUNTOS DE FONDO */
+/* DECORACIÓN IZQUIERDA: CUADRÍCULA DE PUNTOS */
 .grid-pattern-left {
     position: absolute;
     top: 0;
@@ -31,7 +33,9 @@ body {
     z-index: 1;
 }
 
-/* NAVBAR MEJORADA */
+/* ==========================================================================
+   NAVBAR (ESTILO WEB)
+   ========================================================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -57,13 +61,14 @@ body {
     color: #3b82f6;
     font-size: 22px;
 }
+
 .logo-subtitle {
-    font-size: 13px;          /* Tamaño chico */
-    font-weight: 400;          /* Menos grueso para que contraste con el nombre principal */
-    color: #94a3b8;           /* Un tono gris claro elegante */
-    margin-left: 10px;         /* Separación a la derecha de AserCofi */
+    font-size: 13px;
+    font-weight: 400;
+    color: #94a3b8;
+    margin-left: 10px;
     letter-spacing: 0.3px;
-    align-self: flex-end;      /* Lo alinea sutilmente con la base del texto principal */
+    align-self: flex-end;
     padding-bottom: 2px;
 }
 
@@ -86,7 +91,7 @@ body {
     opacity: 0.8;
 }
 
-/* BOTONES */
+/* BOTONES GENERALES */
 .btn-nav {
     background-color: #1d4ed8;
     color: #ffffff;
@@ -121,37 +126,34 @@ body {
     background-color: #1e40af;
 }
 
-/* CONTENEDOR PRINCIPAL FLUIDO */
-/* --- ESTILOS DE ESCRITORIO (PC) --- */
-
-/* Unifica tus .main-wrapper. Esta es la versión correcta para elevar el contenido. */
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL Y HERO
+   ========================================================================== */
 .main-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: calc(100vh - 94px);
-    padding: 30px 80px 40px 80px; /* Padding ajustado para elevar la sección */
+    padding: 30px 80px 40px 80px;
     position: relative;
     z-index: 2;
 }
 
-/* HERO SECTION - REPARADO */
 .hero-section {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
-    text-align: left; /* Alineado a la izquierda */
+    text-align: left;
 }
 
-/* Este es el estilo crítico para el título del héroe desordenado */
 .hero-title {
     font-size: 52px;
     font-weight: 700;
     color: #ffffff;
-    max-width: 800px; /* Evita que el título se estreche y se superponga */
+    max-width: 800px;
     line-height: 1.2;
-    white-space: nowrap; /* Fuerza una sola línea en PC */
+    white-space: nowrap;
 }
 
 .hero-section .subtitle {
@@ -160,7 +162,9 @@ body {
     max-width: 500px;
 }
 
-/* SECCIÓN SERVICIOS */
+/* ==========================================================================
+   SECCIÓN SERVICIOS Y CARRUSEL (WEB)
+   ========================================================================== */
 .services-section {
     margin-top: auto;
 }
@@ -172,36 +176,98 @@ body {
     color: #ffffff;
 }
 
-/* El Grid 2x2 para PC */
+.carrusel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 300px); /* Ilera perfecta de 2x2 en PC */
+    grid-template-columns: repeat(2, 300px);
     gap: 20px;
-    
-    /* Animación de entrada sutil */
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* LEGIBILIDAD DEL TEXTO DE LA TARJETA */
 .service-card p {
     font-size: 14px;
-    color: #94a3b8; /* Gris claro para legibilidad */
+    color: #94a3b8;
     line-height: 1.5;
 }
 
-/* DECLARACIÓN DE LA ANIMACIÓN */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* COMPORTAMIENTO DE LAS FLECHAS */
+.carrusel-btn {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(15, 17, 23, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
 }
 
-/* PANEL LATERAL DESPLEGABLE */
+.carrusel-btn:hover {
+    background: #1d4ed8;
+    border-color: #3b82f6;
+}
+
+.prev-btn { left: -55px; }
+.next-btn { right: -55px; }
+
+/* ==========================================================================
+   NUEVA SECCIÓN DE REDES SOCIALES (MÍNIMALISTA / CORPORATIVO)
+   ========================================================================== */
+.social-section {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-container {
+    display: flex;
+    gap: 20px;
+}
+
+.social-link {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 20px;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   PANEL LATERAL ASESORÍA
+   ========================================================================== */
 .side-panel {
     position: fixed;
     top: 0;
@@ -223,11 +289,13 @@ body {
     right: 0;
 }
 
+/* Corregido error de llave abierta anterior */
 .panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 35px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100%;
+    margin-bottom: 25px;
 }
 
 .badge {
@@ -241,13 +309,14 @@ body {
 }
 
 .close-btn {
-    background: none;
+    color: #94a3b8 !important;
+    font-size: 36px !important;
+    padding: 5px 10px;
+    background: transparent;
     border: none;
-    color: #94a3b8;
-    font-size: 32px;
-    cursor: pointer;
     line-height: 1;
-    transition: color 0.2s;
+    cursor: pointer;
+    z-index: 1001;
 }
 
 .close-btn:hover {
@@ -274,7 +343,7 @@ body {
     line-height: 1.5;
 }
 
-/* FORMULARIO */
+/* FORMULARIO ADVISOR */
 .advisor-form {
     display: flex;
     flex-direction: column;
@@ -325,7 +394,6 @@ body {
     background-color: #1e40af;
 }
 
-/* FOOTER DEL PANEL */
 .panel-footer {
     margin-top: auto;
     display: flex;
@@ -374,7 +442,6 @@ body {
     color: #3f3f46;
 }
 
-/* OVERLAY OSCURO */
 .overlay {
     position: fixed;
     top: 0;
@@ -393,157 +460,186 @@ body {
     pointer-events: auto;
 }
 
-/* DISPOSITIVOS MÓVILES (OPTIMIZACIÓN) */
- /* --- ESTILOS DE DISPOSITIVOS MÓVILES (OPTIMIZACIÓN) --- */
-/* ==========================================================================
-   ESTILOS DE LAS FLECHAS DEL CARRUSEL (GENERAL / WEB)
-   ========================================================================== */
-
-/* Contenedor relativo para posicionar las flechas tanto en PC como en Móvil */
-.carrusel-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
+/* ANIMACIONES */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
-/* Estilo corporativo y limpio para las flechas de navegación */
-.carrusel-btn {
-    display: flex;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(15, 17, 23, 0.75);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.2s ease;
-}
-
-/* Efecto hover premium para web */
-.carrusel-btn:hover {
-    background: #1d4ed8;
-    border-color: #3b82f6;
-}
-
-/* Ubicación de las flechas por fuera del contenedor en la versión Web */
-.prev-btn {
-    left: -55px;
-}
-
-.next-btn {
-    right: -55px;
-}
-
 
 /* ==========================================================================
-   DISPOSITIVOS MÓVILES (OPTIMIZACIÓN)
+   DISPOSITIVOS MÓVILES (OPTIMIZACIÓN PARA IPHONE / SMARTPHONES)
    ========================================================================== */
 @media (max-width: 768px) {
 
-    /* --- CONTENEDOR PRINCIPAL FIX --- */
-    .main-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* Distribuye el espacio eficientemente */
-        min-height: calc(100vh - 80px);
-        padding: 20px 16px 40px 16px;   /* Deja respirar el diseño abajo */
-        box-sizing: border-box;
+    .navbar {
+        padding: 20px 16px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    /* --- HERO RE-ESTRUCTURADO --- */
+    .logo {
+        font-size: 19px !important;
+    }
+
+    .logo-subtitle {
+        display: none !important;
+    }
+
+    .btn-nav {
+        padding: 8px 16px !important;
+        font-size: 13px !important;
+    }
+
+    .main-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        padding: 0 16px 30px 16px !important;
+        min-height: calc(100vh - 74px) !important;
+        box-sizing: border-box !important;
+    }
+
     .hero-section {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+        margin-top: 30px !important;
+        margin-bottom: 0px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
     }
 
     .hero-title {
-        font-size: 32px;
-        line-height: 1.2;
-        white-space: normal;
+        font-size: 34px !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
     }
 
-    /* --- SECCIÓN DE SERVICIOS (CARRUSEL PERFECTO) --- */
+    /* Separación controlada de 5-6 cm hacia los servicios */
     .services-section {
-        width: 100%;
-        margin-top: auto; /* Empuja los servicios hacia la parte inferior de forma limpia */
+        width: 100% !important;
+        margin-top: 65px !important; 
+        margin-bottom: 0px !important;
     }
 
-    /* Contenedor que aísla las flechas del scroll */
+    .services-section h2 {
+        font-size: 22px !important;
+        margin-bottom: 12px !important;
+    }
+
     .carrusel-container {
-        position: relative;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        overflow: visible; /* Permite ver las tarjetas adyacentes */
+        position: relative !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        overflow: visible !important;
     }
 
-    /* Rejilla de scroll horizontal sin elementos rotos */
     .services-grid {
         display: flex !important;
-        flex-direction: row;
-        width: 100%;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        gap: 16px;
-        padding: 10px 0; /* Limita los paddings conflictivos */
-        box-sizing: border-box;
+        flex-direction: row !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-behavior: smooth !important;
+        gap: 16px !important;
+        padding: 10px 0 !important;
+        box-sizing: border-box !important;
     }
 
-    /* Forzar ocultar la barra de scroll */
     .services-grid::-webkit-scrollbar {
-        display: none;
+        display: none !important;
     }
 
-    /* Tarjetas responsivas sin cajas negras gigantes */
     .service-card {
-        flex-shrink: 0;
-        width: 80vw; /* Utiliza el 80% del ancho de la pantalla para que la otra se asome de forma natural */
-        max-width: 300px;
-        scroll-snap-align: center; /* Centrado exacto */
-        padding: 20px;
-        border-radius: 16px;
-        background-color: rgba(10, 11, 14, 0.85); /* Fondo premium equilibrado */
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-sizing: border-box;
+        flex-shrink: 0 !important;
+        width: 285px !important;
+        scroll-snap-align: center !important;
+        padding: 20px !important;
+        border-radius: 16px !important;
+        background-color: rgba(10, 11, 14, 0.85) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-sizing: border-box !important;
     }
 
-    /* --- FLECHAS TRANSPARENTES FLOTANTES --- */
     .carrusel-btn {
         display: flex !important;
         background: transparent !important;
         border: none !important;
-        color: rgba(255, 255, 255, 0.6) !important;
-        font-size: 28px;
-        position: absolute;
-        z-index: 20;
+        color: rgba(255, 255, 255, 0.5) !important;
+        font-size: 32px !important;
+        position: absolute !important;
+        z-index: 20 !important;
     }
 
-    .prev-btn {
-        left: -8px; /* Flota en el extremo izquierdo de la pantalla */
+    .prev-btn { left: -8px !important; }
+    .next-btn { right: -8px !important; }
+
+    /* Ajuste responsivo de la nueva sección de redes sociales */
+    .social-section {
+        margin-top: 125px !important; /* Espacio exacto abajo del carrusel */
+        margin-bottom: 20px !important;
     }
 
-    .next-btn {
-        right: -8px; /* Flota en el extremo derecho de la pantalla */
+    .social-link {
+        width: 46px !important;
+        height: 46px !important;
+        font-size: 19px !important;
     }
+
+    .side-panel {
+        width: 100% !important;
+        right: -100%;
+        padding: 30px 20px !important;
+    }
+} /* Corregido el cierre del bloque de media query móvil */
+/* ==========================================================================
+   ENCENDIDO PERMANENTE DE ICONOS (CÁLIDO / FIJO)
+   ========================================================================== */
+
+/* --- WHATSAPP: Verde cálido encendido de forma fija --- */
+.social-link:has(i.fa-whatsapp) {
+    border-color: rgba(37, 211, 102, 0.35) !important;
+    background-color: rgba(37, 211, 102, 0.08) !important;
+}
+.social-link i.fa-whatsapp {
+    color: #25D366 !important;
+    filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.6));
 }
 
-    /* --- PANEL LATERAL --- */
-    .side-panel {
-        width: 100%;
-        right: -100%;
-        padding: 30px 20px;
-    }
+/* --- INSTAGRAM: Rosa/Púrpura cálido encendido de forma fija --- */
+.social-link:has(i.fa-instagram) {
+    border-color: rgba(228, 64, 95, 0.35) !important;
+    background-color: rgba(228, 64, 95, 0.08) !important;
+}
+.social-link i.fa-instagram {
+    color: #E4405F !important;
+    filter: drop-shadow(0 0 8px rgba(228, 64, 95, 0.6));
+}
+
+/* --- FACEBOOK: Azul cálido encendido de forma fija --- */
+.social-link:has(i.fa-facebook-f) {
+    border-color: rgba(24, 119, 242, 0.35) !important;
+    background-color: rgba(24, 119, 242, 0.08) !important;
+}
+.social-link i.fa-facebook-f {
+    color: #1877F2 !important;
+    filter: drop-shadow(0 0 8px rgba(24, 119, 242, 0.6));
+}
+
+/* --- CORREO: Ámbar/Amarillo cálido encendido de forma fija --- */
+.social-link:has(i.fa-envelope) {
+    border-color: rgba(251, 191, 36, 0.35) !important;
+    background-color: rgba(251, 191, 36, 0.08) !important;
+}
+.social-link i.fa-envelope {
+    color: #FBBF24 !important;
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
+}
